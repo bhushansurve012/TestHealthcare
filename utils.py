@@ -6,7 +6,8 @@ from PATHS import NAVBAR_PATHS, SETTINGS
 
 
 def inject_custom_css():
-    with title('model')
+    with open("assets/images/settings.png", "rb") as image_file:
+        image_as_base64 = base64.b64encode(image_file.read())
 
 
 def get_current_route():
