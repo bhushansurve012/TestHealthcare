@@ -1,20 +1,22 @@
 import streamlit as st
 
 def main():
-    st.title("Models")
-    
-    # Create a navigation menu with options
-    menu_options = ["Home", "About", "Services", "Contact"]
-    selected_option = st.sidebar.selectbox("Models", menu_options)
-    
-    # Display content based on the selected option
-    if selected_option == "Home":
+    st.title("Streamlit Horizontal Tab Navigation")
+
+    # Create a list of tab labels
+    tabs = ["Home", "About", "Services", "Contact"]
+
+    # Display the tabs horizontally
+    selected_tab = st.radio("Select an option", tabs)
+
+    # Display content based on the selected tab
+    if selected_tab == "Home":
         st.write("Welcome to the Home page!")
-    elif selected_option == "About":
+    elif selected_tab == "About":
         st.write("This is the About page. Learn more about us here.")
-    elif selected_option == "Services":
+    elif selected_tab == "Services":
         st.write("Explore our services and what we offer.")
-    elif selected_option == "Contact":
+    elif selected_tab == "Contact":
         st.write("Contact us if you have any questions or inquiries.")
 
 if __name__ == "__main__":
