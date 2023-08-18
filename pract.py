@@ -1,22 +1,21 @@
 import streamlit as st
-import hydralit_components as hc
 
-# specify the primary menu definition
-menu_data = [
-        {'icon': "far fa-copy", 'label':"Left End"},
-        {'id':'Copy','icon':"🐙",'label':"Copy"},
-        {'icon': "far fa-chart-bar", 'label':"Chart"},#no tooltip message
-        {'icon': "far fa-address-book", 'label':"Book"},
-        {'id':' Crazy return value 💀','icon': "💀", 'label':"Calendar"},
-        {'icon': "far fa-clone", 'label':"Component"},
-        {'icon': "fas fa-tachometer-alt", 'label':"Dashboard",'ttip':"I'm the Dashboard tooltip!"}, #can add a tooltip message
-        {'icon': "far fa-copy", 'label':"Right End"},
-]
-# we can override any part of the primary colors of the menu
-#over_theme = {'txc_inactive': '#FFFFFF','menu_background':'red','txc_active':'yellow','option_active':'blue'}
-over_theme = {'txc_inactive': '#FFFFFF'}
-menu_id = hc.nav_bar(menu_definition=menu_data,home_name='Home',override_theme=over_theme)
-
+def main():
+    st.title("Models")
     
-#get the id of the menu item clicked
-st.info(f"{menu_id=}")
+    # Create a navigation menu with options
+    menu_options = ["Home", "About", "Services", "Contact"]
+    selected_option = st.sidebar.selectbox("Models", menu_options)
+    
+    # Display content based on the selected option
+    if selected_option == "Home":
+        st.write("Welcome to the Home page!")
+    elif selected_option == "About":
+        st.write("This is the About page. Learn more about us here.")
+    elif selected_option == "Services":
+        st.write("Explore our services and what we offer.")
+    elif selected_option == "Contact":
+        st.write("Contact us if you have any questions or inquiries.")
+
+if __name__ == "__main__":
+    main()
