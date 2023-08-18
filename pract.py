@@ -1,27 +1,44 @@
 import streamlit as st
 
-def main():
-    st.title("Streamlit Horizontal Navbar with Dropdown")
 
-    menu_options = {
-        "Home": [],
-        "About": [],
-        "Services": ["Service 1", "Service 2", "Service 3"],
-        "Contact": []
-    }
+def navigation():
+    try:
+        path = st.experimental_get_query_params()['p'][0]
+    except Exception as e:
+        st.error('Please use the main app.')
+        return None
+    return path
 
-    selected_option = st.sidebar.radio("Select an option", list(menu_options.keys()))
 
-    if selected_option == "Home":
-        st.write("Welcome to the Home page!")
-    elif selected_option == "About":
-        st.write("This is the About page. Learn more about us here.")
-    elif selected_option == "Services":
-        st.write("Explore our services and what we offer.")
-        selected_service = st.selectbox("Select a service", menu_options["Services"])
-        st.write(f"You selected: {selected_service}")
-    elif selected_option == "Contact":
-        st.write("Contact us if you have any questions or inquiries.")
+if navigation() == "home":
+    st.title('Home')
+    st.write('This is the home page.')
 
-if __name__ == "__main__":
-    main()
+elif navigation() == "results":
+    st.title('Results List')
+    for item in range(25):
+        st.write(f'Results {item}')
+
+elif navigation() == "analysis":
+    st.title('Analysis')
+    x, y = st.number_input('Input X'), st.number_input('Input Y')
+    st.write('Result: ' + str(x+y))
+
+elif navigation() == "examples":
+    st.title('Examples Menu')
+    st.write('Select an example.')
+
+
+elif navigation() == "logs":
+    st.title('View all of the logs')
+    st.write('Here you may view all of the logs.')
+
+
+elif navigation() == "verify":
+    st.title('Data verification is started...')
+    st.write('Please stand by....')
+
+
+elif navigation() == "config":
+    st.title('Configuration of the app.')
+    st.write('Here you can configure the application')
