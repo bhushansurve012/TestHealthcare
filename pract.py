@@ -1,23 +1,22 @@
 import streamlit as st
+import hydralit_components as hc
 
-def main():
-    st.title("Streamlit Horizontal Tab Navigation")
+# specify the primary menu definition
+menu_data = [
+        {'icon': "far fa-copy", 'label':"Left End"},
+        {'id':'Copy','icon':"🐙",'label':"Copy"},
+        {'icon': "far fa-chart-bar", 'label':"Chart"},#no tooltip message
+        {'icon': "far fa-address-book", 'label':"Book"},
+        {'id':' Crazy return value 💀','icon': "💀", 'label':"Calendar"},
+        {'icon': "far fa-clone", 'label':"Component"},
+        {'icon': "fas fa-tachometer-alt", 'label':"Dashboard",'ttip':"I'm the Dashboard tooltip!"}, #can add a tooltip message
+        {'icon': "far fa-copy", 'label':"Right End"},
+]
+# we can override any part of the primary colors of the menu
+#over_theme = {'txc_inactive': '#FFFFFF','menu_background':'red','txc_active':'yellow','option_active':'blue'}
+over_theme = {'txc_inactive': '#FFFFFF'}
+menu_id = hc.nav_bar(menu_definition=menu_data,home_name='Home',override_theme=over_theme)
 
-    # Create a list of tab labels
-    tabs = ["Home", "About", "Services", "Contact"]
-
-    # Display the tabs horizontally
-    selected_tab = st.radio("Select an option", tabs)
-
-    # Display content based on the selected tab
-    if selected_tab == "Home":
-        st.write("Welcome to the Home page!")
-    elif selected_tab == "About":
-        st.write("This is the About page. Learn more about us here.")
-    elif selected_tab == "Services":
-        st.write("Explore our services and what we offer.")
-    elif selected_tab == "Contact":
-        st.write("Contact us if you have any questions or inquiries.")
-
-if __name__ == "__main__":
-    main()
+    
+#get the id of the menu item clicked
+st.info(f"{menu_id=}")
