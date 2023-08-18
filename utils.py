@@ -4,18 +4,18 @@ from streamlit.components.v1 import html
 
 from PATHS import NAVBAR_PATHS, SETTINGS
 
+# Your model's title
+model_title = "Your Model Title"
 
 def inject_custom_css():
     with open('assets/styles.css') as f:
         st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
-
 
 def get_current_route():
     try:
         return st.experimental_get_query_params()['nav'][0]
     except:
         return None
-
 
 def navbar_component():
     with open("assets/images/settings.png", "rb") as image_file:
@@ -78,3 +78,8 @@ def navbar_component():
     </script>
     '''
     html(js)
+
+st.title(model_title)  # Display the title of the model
+navbar_component()  # Display the custom navigation bar
+
+# Your other Streamlit code here
