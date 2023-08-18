@@ -1,23 +1,21 @@
 import streamlit as st
 
 def main():
-    st.title("Horizontal Navbar Example")
-
-    # Create a list of menu items
-    menu_items = ["Home", "About", "Services", "Contact"]
-
-    # Display the navbar
-    with st.beta_container():  # You can use 'st.container' for Streamlit 0.89+
-        nav_item = st.radio("Navigation", menu_items)
-        
-        if nav_item == "Home":
-            st.write("Welcome to the Home page!")
-        elif nav_item == "About":
-            st.write("This is the About page.")
-        elif nav_item == "Services":
-            st.write("Explore our Services.")
-        elif nav_item == "Contact":
-            st.write("Contact us for more information.")
+    st.title("Streamlit Navbar with Dropdown")
+    
+    # Create a navigation menu with options
+    menu_options = ["Home", "About", "Services", "Contact"]
+    selected_option = st.sidebar.selectbox("Select an option", menu_options)
+    
+    # Display content based on the selected option
+    if selected_option == "Home":
+        st.write("Welcome to the Home page!")
+    elif selected_option == "About":
+        st.write("This is the About page. Learn more about us here.")
+    elif selected_option == "Services":
+        st.write("Explore our services and what we offer.")
+    elif selected_option == "Contact":
+        st.write("Contact us if you have any questions or inquiries.")
 
 if __name__ == "__main__":
     main()
