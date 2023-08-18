@@ -1,7 +1,7 @@
 import streamlit as st
 
 def main():
-    st.title("Streamlit Navbar with Dropdown")
+    st.title("Models")
     
     # Create a navigation menu with options
     menu_options = ["Home", "About", "Services", "Contact"]
