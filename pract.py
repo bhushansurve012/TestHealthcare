@@ -5,7 +5,7 @@ def main():
     
     # Create a navigation menu with options
     menu_options = ["Home", "About", "Services", "Contact"]
-    selected_option = st.navbar.selectbox("Models", menu_options)
+    selected_option = st.sidebar.selectbox("Models", menu_options)
     
     # Display content based on the selected option
     if selected_option == "Home":
