@@ -1,34 +1,23 @@
 import streamlit as st
 
 def main():
-    st.title("Custom Horizontal Navbar")
+    st.title("Horizontal Navbar Example")
 
-    menu = ["Home", "About", "Services", "Contact"]
-    selected_page = st.radio("", menu)
+    # Create a list of menu items
+    menu_items = ["Home", "About", "Services", "Contact"]
 
-    # Create a custom horizontal navbar
-    st.markdown(
-        """
-        <style>
-            .navbar {
-                display: flex;
-                justify-content: center;
-                background-color: #f1f1f1;
-                padding: 1rem;
-                margin-bottom: 1rem;
-            }
-            .navbar a {
-                padding: 0.5rem 1rem;
-                text-decoration: none;
-                color: #333;
-                font-weight: bold;
-                border: 1px solid transparent;
-            }
-            .navbar a:hover {
-                background-color: #ddd;
-                border: 1px solid #333;
-            }
-        </style>
-        <div class="navbar">
-            <a href="#" class="active">Home</a>
+    # Display the navbar
+    with st.beta_container():  # You can use 'st.container' for Streamlit 0.89+
+        nav_item = st.radio("Navigation", menu_items)
+        
+        if nav_item == "Home":
+            st.write("Welcome to the Home page!")
+        elif nav_item == "About":
+            st.write("This is the About page.")
+        elif nav_item == "Services":
+            st.write("Explore our Services.")
+        elif nav_item == "Contact":
+            st.write("Contact us for more information.")
 
+if __name__ == "__main__":
+    main()
