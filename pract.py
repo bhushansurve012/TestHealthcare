@@ -32,4 +32,4 @@ def main():
         <div class="navbar">
             <a href="#" class="active">Home</a>
             <a href="#">About</a>
-            <a href
+            
